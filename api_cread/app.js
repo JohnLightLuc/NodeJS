@@ -75,8 +75,16 @@ MemberRouter.route('/:id')
 
 MemberRouter.route('/')
     .get((req, res)=>{
-        res.json(success(membres))
+        if (req.query.max != undefined && req.query.max > 0){
+            res.json(success(membres.slice(0, req.query.max))) 
+        }else if (req.query.max != undefined){
+            res.json(error("Wrong max value"))
+        }else{
+            res.json(success(membres))
+        }
+
     })
+
 
     .post((req, res)=>{
         if (req.body.name){

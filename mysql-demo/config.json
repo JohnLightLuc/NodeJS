@@ -1,4 +1,9 @@
 {
     "routApi": "/api/v1/",
-    "port":8080
+    "port":8080,
+    
+    "host":"localhost",
+    "db": "nodejs",
+    "user":"root",
+    "password":""
 }
